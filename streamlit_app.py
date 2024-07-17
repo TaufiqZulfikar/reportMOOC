@@ -36,8 +36,8 @@ df = pd.DataFrame(all_data)
 df['TotalCourse'] = df['TotalCourse'].astype(int)
 
 # Display the DataFrame to inspect the data
-st.write("Fetched Data")
-st.write(df)
+#st.write("Fetched Data")
+#st.write(df)
 
 # Group data by DepartmentID and DepartmentName, and summarize by month
 df['month'] = pd.to_datetime(df['PublishDate']).dt.month
@@ -59,11 +59,11 @@ st.write("Summary Table:")
 st.dataframe(monthly_summary.reset_index())
 
 # Create a second DataFrame for distinct courses and their associated departments
-distinct_courses = df.groupby('CourseName')['DepartmentName'].apply(lambda x: ', '.join(x.unique())).reset_index()
+#distinct_courses = df.groupby('CourseName')['DepartmentName'].apply(lambda x: ', '.join(x.unique())).reset_index()
 
 # Display the distinct courses table
 st.write("Distinct Courses with Associated Departments:")
-st.dataframe(distinct_courses)
+#st.dataframe(distinct_courses)
 
 # To run the app, save this file and execute the following command in the terminal:
 # streamlit run app.py
