@@ -4,18 +4,18 @@ import pandas as pd
 
 # URLs for each month
 urls = [
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=1",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=2",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=3",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=4",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=5",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=6",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=7",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=8",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=9",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=10",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=11",
-    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2024&month=12",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=1",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=2",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=3",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=4",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=5",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=6",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=7",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=8",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=9",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=10",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=11",
+    "https://binus.ac.id/mooc/wp-json/api/v1/info/query?year=2025&month=12",
 ]
 
 # Fetch data from each URL and combine it into a single list
@@ -51,7 +51,7 @@ summary_table = monthly_summary.reset_index()
 summary_table = summary_table[['DepartmendID', 'DepartmentName', 'total']]
 
 # Display the first summary table
-st.title("Binus MOOC Info Summary for 2024")
+st.title("Binus MOOC Info Summary for 2025")
 st.write("Summary Table 1:")
 st.dataframe(summary_table)
 
@@ -73,6 +73,6 @@ monthly_summary['total'] = monthly_summary.sum(axis=1)
 monthly_summary.columns = [f"Bulan {col}" if isinstance(col, int) else col for col in monthly_summary.columns]
 
 # Display the second summary table
-st.title("Binus MOOC Info Summary for 2024")
+st.title("Binus MOOC Info Summary for 2025")
 st.write("Summary Table 2:")
 st.dataframe(monthly_summary.reset_index())
