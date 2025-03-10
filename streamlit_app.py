@@ -40,7 +40,17 @@ else:
 #df['TotalCourse'] = df['TotalCourse'].astype(int)
 
 # Group data by DepartmentID and DepartmentName, and summarize by month
-df['month'] = pd.to_datetime(df['PublishDate']).dt.month
+#df['month'] = pd.to_datetime(df['PublishDate']).dt.month
+if 'PublishDate' in df.columns:
+    if df['PublishDate'].notnull().any():  # Cek jika tidak semua nilai NaN
+        df['month'] = pd.to_datetime(df['PublishDate'], errors='coerce').dt.month
+    else:
+        print("Kolom 'PublishDate' ada tetapi kosong.")
+        df['month'] = None  # Bisa juga diisi default value
+else:
+    print("Kolom 'PublishDate' tidak ditemukan dalam dataframe.")
+    df['month'] = None
+
 monthly_summary = df.pivot_table(index=['DepartmendID', 'DepartmentName'], columns='month', values='TotalCourse', aggfunc='sum', fill_value=0)
 
 # Ensure all months from 1 to 12 are present
