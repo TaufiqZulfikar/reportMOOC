@@ -33,7 +33,11 @@ for url in urls:
 df = pd.DataFrame(all_data)
 
 # Convert 'TotalCourse' to integers
-df['TotalCourse'] = df['TotalCourse'].astype(int)
+if 'TotalCourse' in df.columns:
+    df['TotalCourse'] = df['TotalCourse'].astype(int)
+else:
+    print("Kolom 'TotalCourse' tidak ditemukan dalam dataframe.")
+#df['TotalCourse'] = df['TotalCourse'].astype(int)
 
 # Group data by DepartmentID and DepartmentName, and summarize by month
 df['month'] = pd.to_datetime(df['PublishDate']).dt.month
